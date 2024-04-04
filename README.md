@@ -1,5 +1,5 @@
 # ¿Qué queremos construir?
-Estamos construyendo un carrito de compras para una tienda de comestibles en línea. La idea de este kata es construir el producto de forma iterativa.
+Estamos construyendo un carrito de compras para una tienda de comestibles en línea. La idea de esta kata es construir el producto de forma iterativa.
 
 ## Requerimientos técnicos
 * El precio por unidad se calcula en función del costo del producto y el porcentaje de ingresos que la empresa quiere para ese producto.
