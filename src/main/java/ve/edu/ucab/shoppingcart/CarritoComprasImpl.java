@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class CarritoComprasImpl implements CarritoCompras {
-    List<Producto> productos = new ArrayList<>();
+    private List<Producto> productos = new ArrayList<>();
 
     @Override
     public void agregarProducto(Producto producto) {
@@ -25,18 +25,14 @@ class CarritoComprasImpl implements CarritoCompras {
     @Override
     public void aplicarDescuento(Descuento descuento) {
         for (Producto p : productos) {
-            if (p.obtenerNombre().equals(descuento.obtenerNombreDelProducto())) {
-                double cantidadDescuento = p.obtenerPrecioPorUnidad() * descuento.obtenerPorcentajeDeDescuento() / 100;
-                p.costo -= cantidadDescuento;
-                break;
-            }
+            p.aplicarDescuento(descuento);
         }
     }
 
     @Override
     public void imprimirCarritoDeCompras() {
         for (Producto p : productos) {
-            System.out.println("Producto: " + p.obtenerNombre() + ", Precio por unidad: " + p.obtenerPrecioPorUnidad() + ", Precio final: " + p.obtenerPrecioFinal());
+            System.out.println("Producto: " + p.obtenerNombre() + ", Precio final: " + p.obtenerPrecioFinal());
         }
     }
 }

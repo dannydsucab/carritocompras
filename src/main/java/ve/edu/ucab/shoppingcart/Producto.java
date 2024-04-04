@@ -4,10 +4,12 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 class Producto {
-    String nombre;
-    double costo;
-    double porcentajeDeBeneficio;
-    double porcentajeDeIVA;
+    private String nombre;
+    private double costo;
+    private double porcentajeDeBeneficio;
+    private double porcentajeDeIVA;
+
+    private Descuento descuento;
 
     public Producto(String nombre, double costo, double porcentajeDeBeneficio, double porcentajeDeIVA) {
         this.nombre = nombre;
@@ -25,6 +27,11 @@ class Producto {
     // Calcula el precio final del producto incluyendo el IVA
     public double obtenerPrecioFinal() {
         double precioBase = obtenerPrecioPorUnidad();
+
+        if (this.descuento != null) {
+            precioBase = obtenerPrecioPorUnidad() * (1 - descuento.obtenerPorcentajeDeDescuento() / 100);
+        }
+
         double precioConIVA = precioBase + (precioBase * porcentajeDeIVA / 100);
         return redondear(precioConIVA);
     }
@@ -35,5 +42,9 @@ class Producto {
 
     public String obtenerNombre() {
         return nombre;
+    }
+
+    public void aplicarDescuento(Descuento descuento) {
+        this.descuento = descuento;
     }
 }

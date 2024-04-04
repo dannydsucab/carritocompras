@@ -1,16 +1,16 @@
 package ve.edu.ucab.shoppingcart;
 
 class Descuento {
-    String nombreDelProducto;
-    double porcentajeDeDescuento;
+    private String nombrePromo;
+    private double porcentajeDeDescuento;
 
-    public Descuento(String nombreDelProducto, double porcentajeDeDescuento) {
-        this.nombreDelProducto = nombreDelProducto;
+    public Descuento(String nombrePromo, double porcentajeDeDescuento) {
+        this.nombrePromo = nombrePromo;
         this.porcentajeDeDescuento = porcentajeDeDescuento;
     }
 
     public String obtenerNombreDelProducto() {
-        return nombreDelProducto;
+        return nombrePromo;
     }
 
     public double obtenerPorcentajeDeDescuento() {

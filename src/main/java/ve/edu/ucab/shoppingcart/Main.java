@@ -22,7 +22,7 @@ public class Main {
         carrito.imprimirCarritoDeCompras();
 
         // Aplicar descuento al pan
-        Descuento descuentoPan = new Descuento("Pan", 5); // 5% de descuento al pan
+        Descuento descuentoPan = new Descuento("PROMO_5", 5); // 5% de descuento al pan
         carrito.aplicarDescuento(descuentoPan);
 
         // Imprimir el carrito después del descuento
